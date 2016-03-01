@@ -4,4 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_contentt"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnDownloadStartStop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="download"/>
+
+        <Button
+            android:id="@+id/btnShowData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show weather data"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listviewWeatherData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
 </LinearLayout>

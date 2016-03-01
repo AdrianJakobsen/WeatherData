@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Models.WeatherData;
 
@@ -52,6 +53,10 @@ public class WeatherDataSource {
 
     // TODO: 01.03.2016 do this shit and allColumns 
     private WeatherData cursorToContact(Cursor cursor) {
+        return null;
+    }
+
+    public ArrayList<WeatherData> getAllData() {
         return null;
     }
 }
