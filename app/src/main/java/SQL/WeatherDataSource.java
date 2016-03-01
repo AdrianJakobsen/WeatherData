@@ -14,11 +14,11 @@ import Models.WeatherData;
 /**
  * Created by adrja on 01.03.2016.
  */
-public class KontaktDataKilde {
+public class WeatherDataSource {
     private SQLiteDatabase database;
     private SQLiteHelper dbHelper;
 
-    public KontaktDataKilde (Context context) {
+    public WeatherDataSource(Context context) {
         dbHelper = new SQLiteHelper(context);
     }
 
@@ -50,6 +50,7 @@ public class KontaktDataKilde {
         return  newWeatherData;
     }
 
+    // TODO: 01.03.2016 do this shit and allColumns 
     private WeatherData cursorToContact(Cursor cursor) {
         return null;
     }
