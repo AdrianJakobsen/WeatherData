@@ -11,8 +11,8 @@ public class WeatherData {
     private String station_position;
     private Date timestamp;
     private double temperature;
-    private int pressure;
-    private int humidity;
+    private double pressure;
+    private double humidity;
 
     public WeatherData(String station_name, String station_position, Date timestamp, double temperature, int pressure, int humidity) {
         this.station_name = station_name;
@@ -63,7 +63,7 @@ public class WeatherData {
         this.temperature = temperature;
     }
 
-    public int getPressure() {
+    public double getPressure() {
         return pressure;
     }
 
@@ -71,7 +71,7 @@ public class WeatherData {
         this.pressure = pressure;
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 

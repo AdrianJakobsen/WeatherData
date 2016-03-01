@@ -25,8 +25,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             + WEATHER_TABLE + " ("+ KEY_ID
             + "integer primary key autoincrement, " + KEY_STATION_NAME
             + " text not null, " + KEY_STATION_POSITION + " text," + KEY_TIMESTAMP
-            + " DateTime, " + KEY_TEMPERATURE + " int, " + KEY_PRESSURE
-            + " double, " + KEY_HUMIDITY + " int);";
+            + " DateTime, " + KEY_TEMPERATURE + " double, " + KEY_PRESSURE
+            + " double, " + KEY_HUMIDITY + " double);";
 
 
     public SQLiteHelper(Context context) {

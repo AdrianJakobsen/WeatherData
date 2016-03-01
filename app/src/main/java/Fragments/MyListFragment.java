@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.adrja.weatherdata.R;
@@ -26,7 +27,8 @@ public class MyListFragment extends Fragment implements View.OnClickListener, Ad
     private ArrayList<WeatherData> weatherDataItems = null;
     private ListView myListView = null;
     private WeatherDataSource weatherDataSource = null;
-    private WeatherData valgtKontakt = null;
+    private WeatherData chosenWeatherData = null;
+    private boolean downloadIsInProgress = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,9 +67,11 @@ public class MyListFragment extends Fragment implements View.OnClickListener, Ad
         switch (v.getId()) {
             case R.id.btnDownloadStartStop:
                 if(downloadIsInProgress){
-                    stopDownload();
+                    //stopDownload();
+                    downloadIsInProgress = false;
                 }else{
-                    startDownload();
+                    //startDownload();
+                    downloadIsInProgress = true;
                 }
                 break;
             case R.id.btnShowData:
@@ -78,16 +82,9 @@ public class MyListFragment extends Fragment implements View.OnClickListener, Ad
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        chosenWeatherData = weatherDataItems.get(position);
 
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parentView, View childView, int position, long id) {
-
+        EditText temperature = (EditText)getActivity().findViewById(R.id.etShowDataTemperature);
+        temperature.setText((int) chosenWeatherData.getTemperature());
     }
 }
