@@ -18,9 +18,11 @@ import Models.WeatherData;
 public class WeatherDataSource {
     private SQLiteDatabase database;
     private SQLiteHelper dbHelper;
+    private String[] allColumns;
 
     public WeatherDataSource(Context context) {
         dbHelper = new SQLiteHelper(context);
+        allColumns = new String[] {"station_name","station_position", "timestamp", "temperature", "pressure", "humidity"};
     }
 
     public void open() throws SQLException{
@@ -31,14 +33,14 @@ public class WeatherDataSource {
         dbHelper.close();
     }
 
-    public WeatherData createWeatherData (String stationName, String stationPosition, Date timestamp, double temperatur,
-                                          int pressure, int humidity)  {
+    public WeatherData createWeatherData (String stationName, String stationPosition, Date timestamp, double temperature,
+                                          double pressure, double humidity)  {
 
         ContentValues values = new ContentValues();
         values.put(SQLiteHelper.KEY_STATION_NAME, stationName);
-        values.put(SQLiteHelper.KEY_STATION_POSITION, stationName);
+        values.put(SQLiteHelper.KEY_STATION_POSITION, stationPosition);
         values.put(SQLiteHelper.KEY_TIMESTAMP, timestamp.toString());
-        values.put(SQLiteHelper.KEY_TEMPERATURE, temperatur);
+        values.put(SQLiteHelper.KEY_TEMPERATURE, temperature);
         values.put(SQLiteHelper.KEY_PRESSURE, pressure);
         values.put(SQLiteHelper.KEY_HUMIDITY, humidity);
 
@@ -51,7 +53,7 @@ public class WeatherDataSource {
         return  newWeatherData;
     }
 
-    // TODO: 01.03.2016 do this shit and allColumns 
+    // TODO: 01.03.2016 do this shit
     private WeatherData cursorToContact(Cursor cursor) {
         return null;
     }
